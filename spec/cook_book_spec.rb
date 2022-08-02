@@ -1,6 +1,6 @@
 require './lib/ingredient'
 require './lib/recipe'
-require './lib/cookbook'
+require './lib/cook_book'
 
 RSpec.describe CookBook do
   let(:ingredient1) {Ingredient.new({name: "Cheese", unit: "C", calories: 100})}
@@ -13,7 +13,7 @@ RSpec.describe CookBook do
     expect(cookbook).to be_a(CookBook)
   end
 
-  xit 'can add recipes' do
+  it 'can add recipes' do
     cookbook.add_recipe(recipe1)
     cookbook.add_recipe(recipe2)
     expect(cookbook.recipes).to eq([recipe1, recipe2])
