@@ -12,13 +12,13 @@ RSpec.describe Recipe do
    expect(recipe1.ingredients_required).to eq({})
   end
 
-  xit 'can add ingredients' do
+  it 'can add ingredients' do
     recipe1.add_ingredient(ingredient1, 2)
     recipe1.add_ingredient(ingredient1, 4)
     recipe1.add_ingredient(ingredient2, 8)
     expected = {
-          ingredient1: 6,
-          ingredient2: 8
+          ingredient1 => 6,
+          ingredient2 => 8
     }
     expect(recipe1.ingredients_required).to eq(expected)
     expect(recipe1.ingredients).to eq([ingredient1, ingredient2])
