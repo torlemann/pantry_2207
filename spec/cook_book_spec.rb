@@ -20,8 +20,15 @@ RSpec.describe CookBook do
   end
 
   it 'can return ingredient names' do
+    ingredient3 = Ingredient.new({name: "Ground Beef", unit: "oz", calories: 100})
+    ingredient4 = Ingredient.new({name: "Bun", unit: "g", calories: 75})
     cookbook.add_recipe(recipe1)
     cookbook.add_recipe(recipe2)
+    recipe1.add_ingredient(ingredient1, 2)
+    recipe1.add_ingredient(ingredient2, 8)
+    recipe2.add_ingredient(ingredient1, 2)
+    recipe2.add_ingredient(ingredient3, 4)
+    recipe2.add_ingredient(ingredient4, 1)
     expect(cookbook.ingredients).to eq(["Cheese", "Macaroni", "Ground Beef", "Bun"])
   end
 
