@@ -11,12 +11,16 @@ RSpec.describe Pantry do
     expect(pantry.stock).to eq({})
   end
 
-  xit 'can check pantry stock and restock' do
+  it 'can check pantry stock' do
+    ingredient1 = Ingredient.new({name: "Cheese", unit: "oz", calories: 50})
+    pantry = Pantry.new
+    expect(pantry.stock_check(ingredient1)).to eq(0)
+  end
+
+  it 'can restock' do
     ingredient1 = Ingredient.new({name: "Cheese", unit: "oz", calories: 50})
     ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 200})
     pantry = Pantry.new
-    expect(pantry.stock_check(ingredient1)).to eq(0)
-
     pantry.restock(ingredient1, 5)
     pantry.restock(ingredient1, 10)
     expect(pantry.stock_check(ingredient1)).to eq(15)
