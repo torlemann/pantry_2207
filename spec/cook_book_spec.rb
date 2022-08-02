@@ -18,4 +18,16 @@ RSpec.describe CookBook do
     cookbook.add_recipe(recipe2)
     expect(cookbook.recipes).to eq([recipe1, recipe2])
   end
+
+  it 'can return ingredient names' do
+    cookbook.add_recipe(recipe1)
+    cookbook.add_recipe(recipe2)
+    expect(cookbook.ingredients).to eq(["Cheese", "Macaroni", "Ground Beef", "Bun"])
+  end
+
+  xit 'can return highest calorie meal' do
+    cookbook.add_recipe(recipe1)
+    cookbook.add_recipe(recipe2)
+    expect(cookbook.highest_calorie_meal).to eq(recipe2)
+  end
 end
