@@ -25,6 +25,9 @@ RSpec.describe Pantry do
   end
 
   it 'can check if pantry has enough ingredients for recipe' do
+    recipe1 = Recipe.new("Mac and Cheese")
+    recipe1.add_ingredient(ingredient1, 2)
+    recipe1.add_ingredient(ingredient2, 8)
     pantry.restock(ingredient1, 5)
     pantry.restock(ingredient1, 10)
     expect(pantry.enough_ingredients_for?(recipe1)).to eq(false)
